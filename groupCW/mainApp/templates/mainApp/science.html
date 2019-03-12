@@ -1,0 +1,144 @@
+{% extends "mainApp/base.html" %}
+{% load staticfiles %}
+{% block content %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="{% static 'mainApp/addCommentSci.js' %}"></script>
+<h1 style = "text-align: center; color: rgba(128, 0, 32, .7);">Science</h1>
+<p style = "text-align: center; color: rgba(128, 0, 32, .7);">__________________________________________________</p> </br>
+
+<div id="Article">
+     <div style="text-align: center">
+       		<h2> GSK </h2>
+      <img src="https://www.gskbrandhub.com/Frontend/Styles/video_placeholders/helper_video.png" alt="Image not found" height="300" width="290">
+    <p>
+        Pharmaceutical company making billions from producing legal drugs such as paracetamol.
+    </p>
+    <p>
+       GSK is one of the largest pharmaceutical companies out there in the world, so its no surprise that making billions making legal drugs curing people with the various diseases encountered. But making these drugs are not easy, as they have to be viable for both investors and consumers, then tested vigoruously which costs a lot of money, before being released to the public.
+		</br> </br>
+    <div id="Comments">
+   {% if comments %}
+   <span style="font-weight: bold;" >Comments </span><br>
+   {% for comment in comments %}
+      {% if comment.article.header == "sci1" %}
+        {{comment.user.firstName}} : {{ comment.text }}
+            {% if comment.user.email == username %}
+        [<a href='/science/?erase={{comment.id}}'>Erase</a>]
+            {% endif %}
+        <br>
+      {% endif %}
+   {% endfor %}
+  {% endif %}
+  </div>
+  <p>
+
+  {% if loggedin %}
+    <form id = "addComment" method='POST' >
+       {% csrf_token %}
+       Add a comment:
+       <br>
+       <textarea id='comment' cols='60' rows='3'></textarea>
+       <input type='hidden' id='article' value = "sci1">
+       <br>
+       <input type='submit' value='Post Message'>
+    </form>
+  {% endif %}
+  {% for article in articles %}
+    {% if article.header == "sci1" %}
+      [<a href='/science/?like={{article.header}},{{username}}'>{{article.likes}} Like</a>]
+    {% endif %}
+  {% endfor %}
+  </div>
+  </div>
+
+  <div id="Article">
+     <div style="text-align: center">
+           <h2> Study Finds That Gaming Helps With Reflexes </h2>
+      <img src="https://www.themarysue.com/wp-content/uploads/2016/03/gaming.jpg" alt="Image not found" height="300" width="290" align="middle">
+    <p>
+         A researcher at Harvard university has found from his research that, gamig greatly improves an individuals reflexes, espicially with first person shooters. This enforces that gamers remain vigilant in order to get a high score while preventing a virtual death by constantly being alert for opposing players. This means that gamers have better reflexes than those who do not play.
+    </p>
+    <p>
+
+    </p>
+    </br> </br>
+   <div id="Comments">
+   {% if comments %}
+   <span style="font-weight: bold;" >Comments </span><br>
+   {% for comment in comments %}
+      {% if comment.article.header == "sci2" %}
+        {{comment.user.firstName}} : {{ comment.text }}
+            {% if comment.user.email == username %}
+        [<a href='/science/?erase={{comment.id}}'>Erase</a>]
+            {% endif %}
+        <br>
+      {% endif %}
+   {% endfor %}
+  {% endif %}
+  </div>
+  <p>
+  {% if loggedin %}
+    <form id = "addComment2" method='POST' >
+       {% csrf_token %}
+       Add a comment:
+       <br>
+       <textarea id='comment2' cols='60' rows='3'></textarea>
+       <input type='hidden' id='article2' value = "sci2">
+       <br>
+       <input type='submit' value='Post Message'>
+    </form>
+  {% endif %}
+  {% for article in articles %}
+    {% if article.header == "sci2" %}
+      [<a href='/science/?like={{article.header}},{{username}}'>{{article.likes}} Like</a>]
+    {% endif %}
+  {% endfor %}
+  </div>
+ </div>
+
+  <div id="Article">
+     <div style="text-align: center">
+           <h2> Talking To Yourself Can Mean You're Crazy </h2>
+      <img src="http://www.tiptoptens.com/wp-content/uploads/2015/07/talking-to-yourself-300x228-300x228.jpg" alt="Image not found" height="300" width="290" align="middle">
+    <p>
+         A study conducted from a sample size of 30,000 people has found that, if you talk to yourself, you may be insane.
+    </p>
+    <p>
+        This comes as not surprising, since it's not common for someone to talk themselves more often than actual people. However, it is known that we do talk to ourselves when we say phrases such as "dammit", implying that this is not towards anyone but yourself. Therefore, it is concerning if you find yourself not interacting with others, since it could cause a mental illness.
+    </p>
+    </br> </br>
+    <div id="Comments">
+   {% if comments %}
+   <span style="font-weight: bold;" >Comments </span><br>
+   {% for comment in comments %}
+      {% if comment.article.header == "sci3" %}
+        {{comment.user.firstName}} : {{ comment.text }}
+            {% if comment.user.email == username %}
+        [<a href='/science/?erase={{comment.id}}'>Erase</a>]
+            {% endif %}
+        <br>
+      {% endif %}
+   {% endfor %}
+  {% endif %}
+  </div>
+  <p>
+  {% if loggedin %}
+    <form id = "addComment3" method='POST' >
+       {% csrf_token %}
+       Add a comment:
+       <br>
+       <textarea id='comment3' cols='60' rows='3'></textarea>
+       <input type='hidden' id='article3' value = "sci3">
+       <br>
+       <input type='submit' value='Post Message'>
+    </form>
+  {% endif %}
+  {% for article in articles %}
+    {% if article.header == "sci3" %}
+      [<a href='/science/?like={{article.header}},{{username}}'>{{article.likes}} Like</a>]
+    {% endif %}
+  {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

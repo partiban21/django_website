@@ -1,0 +1,150 @@
+{% extends "mainApp/base.html" %}
+{% load staticfiles %}
+{% block content %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="{% static 'mainApp/addComment.js' %}"></script>
+<h1 style = "text-align: center; color: rgba(128, 0, 32, .7);">Technology </h1>
+<p style = "text-align: center; color: rgba(128, 0, 32, .7);">__________________________________________________</p> </br>
+
+<!--Article 1-->
+     <div id="Article" style="text-align: center">
+       		<h2> LG 4K OLED TV </h2>
+      <img src="http://www.avlounge.co.uk/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/l/g/lg_oled_tv_-_b7_55_inch_oled55b7v.jpg" alt="Image not found" height="300" width="290">
+    <p>
+        LG has been the market leader for OLED TV's, as they are the only company able to produce OLED screens on a large scale. Hence why other companies are buying their screens from LG to make their own line of OLED TV's.
+    </p>
+    <p>
+       LG has produced some stunning televisions using OLED, which produce deep levels of black unparalleled by QLED that Samsung uses in comparison. However, OLED is suseptible to screen burn in when left on an static image for too long.
+		</br> </br>
+    <div id="Comments">
+   {% if comments %}
+   <span style="font-weight: bold;" >Comments </span><br>
+   {% for comment in comments %}
+      {% if comment.article.header == "tec1" %}
+        {{comment.user.firstName}} : {{ comment.text }}
+            {% if comment.user.email == username %}
+        [<a href='/technology/?erase={{comment.id}}'>Erase</a>]
+            {% endif %}
+        <br>
+      {% endif %}
+   {% endfor %}
+  {% endif %}
+  </div>
+  <p>
+
+  {% if loggedin %}
+    <form id = "addComment" method='POST' >
+       {% csrf_token %}
+       Add a comment:
+       <br>
+       <textarea id='comment' cols='60' rows='3'></textarea>
+       <input type='hidden' id='article' value = "tec1">
+       <br>
+       <input type='submit' value='Post Message'>
+    </form>
+  {% endif %}
+  {% for article in articles %}
+    {% if article.header == "tec1" %}
+      [<a href='/technology/?like={{article.header}},{{username}}'>{{article.likes}} Like</a>]
+    {% endif %}
+  {% endfor %}
+</div>
+<!---end of article 1--->
+
+</br><p style = "text-align: center; color: rgba(128, 0, 32, .7);">__________________________________________________</p> </br>
+
+<!---Article 2--->
+     <div id= "Article" style="text-align: center">
+    <h2> Tesla Roadster </h2>
+      <img src="http://db.carbuzz.com/images2/660000/0/600/660623.jpg" alt="Image not found" height="300" width="290" align="middle">
+    <p>
+         Tesla unveiled their new roadster and it looks phenomenal.
+    </p>
+    <p>
+      The electric car has a stunning design, both exterior and interior, as well as magnificent speed. It is able to reach speeds above 250mph, putting it in contention with supercars such as Mclaren.
+    </p>
+    </br> </br>
+    <div id="Comments">
+   {% if comments %}
+   <span style="font-weight: bold;" >Comments </span><br>
+   {% for comment in comments %}
+      {% if comment.article.header == "tec2" %}
+        {{comment.user.firstName}} : {{ comment.text }}
+            {% if comment.user.email == username %}
+        [<a href='/technology/?erase={{comment.id}}'>Erase</a>]
+            {% endif %}
+        <br>
+      {% endif %}
+   {% endfor %}
+  {% endif %}
+  </div>
+  <p>
+
+  {% if loggedin %}
+    <form id = "addComment2" method='POST' >
+       {% csrf_token %}
+       Add a comment:
+       <br>
+       <textarea id='comment2' cols='60' rows='3'></textarea>
+       <input type='hidden' id='article2' value = "tec2">
+       <br>
+       <input type='submit' value='Post Message'>
+    </form>
+  {% endif %}
+  {% for article in articles %}
+    {% if article.header == "tec2" %}
+      [<a href='/technology/?like={{article.header}},{{username}}'>{{article.likes}} Like</a>]
+    {% endif %}
+  {% endfor %}
+  </div>
+
+  <!--end of article 2 --->
+
+</br><p style = "text-align: center; color: rgba(128, 0, 32, .7);">__________________________________________________</p> </br>
+
+  <!--Article 3--->
+     <div id ="Article" style="text-align: center">
+           <h2> Autonomous Vehicles </h2>
+      <img src="https://fortunedotcom.files.wordpress.com/2016/02/rex.png" alt="Image not found" height="300" width="290" align="middle">
+    <p>
+         Google has made a huge investment into autonomous vehicles, as part of their goal to make cars more safe and smarter.
+    </p>
+    <p>
+      This is followed by Uber also buying a new cars from Volvo to add a fleet of autonomous cars to their lineup, as part of preventing any more legal issues with their current human drivers.
+    </p>
+    </br> </br>
+    <div id="Comments">
+   {% if comments %}
+   <span style="font-weight: bold;" >Comments </span><br>
+   {% for comment in comments %}
+      {% if comment.article.header == "tec3" %}
+        {{comment.user.firstName}} : {{ comment.text }}
+            {% if comment.user.email == username %}
+        [<a href='/technology/?erase={{comment.id}}'>Erase</a>]
+            {% endif %}
+        <br>
+      {% endif %}
+   {% endfor %}
+  {% endif %}
+
+  <p>
+  </div>
+  {% if loggedin %}
+    <form id = "addComment3" method='POST' >
+       {% csrf_token %}
+       Add a comment:
+       <br>
+       <textarea id='comment3' cols='60' rows='3'></textarea>
+       <input type='hidden' id='article3' value = "tec3">
+       <br>
+       <input type='submit' value='Post Message'>
+    </form>
+  {% endif %}
+  {% for article in articles %}
+    {% if article.header == "tec3" %}
+      [<a href='/technology/?like={{article.header}},{{username}}'>{{article.likes}} Like</a>]
+    {% endif %}
+  {% endfor %}
+    </div>
+
+  {% endblock %}

@@ -1,0 +1,306 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<p> </p>
+	<title>TNN</title>
+	<style type="text/css">
+
+	body
+	{
+		font-family:Sans-serif;
+		min-width: 630px;
+		min-height: 1300px;
+		max-height:100%;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		margin-left: auto; /* changed from 0px*/
+		margin-right: auto; /* changed from 0px*/
+		padding-left: 0;
+		padding-right: 0;
+		color: white;
+		background-image:url("/static/mainApp/images/news.jpg");
+		background-size:     cover;
+		background-repeat:   no-repeat;
+		background-attachment: fixed;
+		background-position: bottom bottom;}
+
+	#Wrapper {
+		font-family:Sans-serif;
+		min-width: 630px;
+		min-height: 1300px;
+		max-height:100%;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		margin-left: auto; /* changed from 0px*/
+		margin-right: auto; /* changed from 0px*/
+		padding-left: 0;
+		padding-right: 0;
+		color: white;
+		background-image:url("/static/mainApp/images/news.jpg");
+		background-size:     cover;
+		background-repeat:   no-repeat;
+		background-attachment: fixed;
+		background-position: bottom bottom;}
+
+
+	#Article h2{
+		/*color: grey;
+		/*column-span: 1;*/
+		/*margin-left: auto; /* changed from 0px*/
+		/*margin-right: auto; /* changed from 0px*/
+	}
+
+	#Article{
+		/*
+		color: black;
+		max-height: 400px;
+		min-width: 500px;
+		height: auto;
+		width: auto
+		background: ;
+		column-count: 1;
+
+		padding: 5px;
+		/*column-rule-style: solid;
+		column-rule-width: 4px;
+			column-gap: 20px;
+		column-rule-color: #ff0000;*/
+/*
+		margin-left: auto; /* changed from 0px*/
+		/*margin-right: auto; /* changed from 0px*/
+	}
+
+	#Comments{
+		color: blue;
+	}
+
+	#header {
+		 background-color:black;
+		 color:white;
+		 text-align:center;
+		 padding:0px;
+				margin-right: 105px;
+				margin-left: 100px;
+		background: rgb(54, 55, 25);
+		background: rgba(0, 0, 0, .7);  /*red,green,blue and a is the opacity*/
+
+		 }
+	/*added below  */
+	#nav{
+
+	}
+	#centre {   text-align:center;}
+
+	#log{
+			float: right;
+
+	}
+	#header ul {
+
+			list-style-type: none;
+		text-align:center;
+			margin: 0px;
+
+			padding: 0px;
+			overflow: hidden;
+			background-color: #333;
+	}
+
+	#header li {
+			float: left;
+	}
+
+	#header li a {
+			display: block;
+			color: white;
+			text-align: center;
+			padding: 14px ;
+			text-decoration: none;
+
+	}
+
+	li a:hover {
+			background-color: #111;
+	}
+	/*added above*/
+
+	#menu {
+		position: absolute;
+		margin-left:420px;
+		margin-right: 100px;
+		right: 5px;
+		/*padding: 20px , ;*/
+		padding-right:7px;
+		padding-left:7px;
+		width: 229.5px;
+		min-height: 2500px;
+		max-height: 100%;
+		 margin-bottom:80px;
+		background-color:grey;
+	 /* background: rgb(54, 55, 25);
+		background: rgba(0, 0, 0, .9);  /*red,green,blue and a is the opacity*/
+		 background: rgb(54, 55, 25);
+		 background: rgba(128, 0, 32, .7);
+		overflow:auto;
+	}
+
+	#content {
+
+		margin-left: 100px;
+		padding: 20px;
+		margin-right: 348px;
+		min-width: 300px;
+		min-height: 2464px;
+		max-height: 100%;
+		margin-bottom:80px;
+		color:black;
+		/*background: rgb(54, 55, 25);
+		background: rgba(0, 0, 0, .8);  */
+		background: rgb(100, 100, 100);
+		background: rgba(255, 255, 255, .9);
+		overflow:auto;
+	}
+
+
+	#textboxid {
+		height:200px;
+	}
+
+
+	a: {
+		color:blue;
+	}
+
+	a:visited {
+		color:blue;
+	}
+
+	a:hover { /*Changes colour when mouse hovers over a link*/
+
+			color: white;
+	}
+
+	#AE{
+		margin-left: 160px;
+	width: 90px;
+	}
+
+	#clear{
+		margin-left: 203px;
+	width: 90px;
+	}
+
+	#footer {
+		position: fixed;
+		right: 0;
+		bottom: 0;
+		height:40px;
+		left: 0;
+		background-color:black;
+		color:white;
+		text-align:center;
+		padding:5px; }
+  </style>
+	<!--<link rel="stylesheet" type="text/css" href="{% static 'mainApp/styles4.css' %}" />
+	<!-- FACEBOOK- Comment #1: OG Tags -->
+<meta property="og:url"           content="http://www.your-domain.com/your-page.html" />
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content="Your Website Title" />
+<meta property="og:description"   content="Your description" />
+<meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" />
+
+</head>
+<body>
+
+	<!--FACEBOOK STUFF ANGULARJS 2 -->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.11';
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<!--FACEBOOK STUFF -->
+
+
+<div id="Wrapper">
+
+	<div id="header"><!--Links for my website-->
+
+		<!--< img src="images/globe.png" alt="Image not found " width="60" height="60"> -->
+    <h1>The News Nest</h1>
+
+		 <ul>
+       <li><a href='/'>Home</a></li>
+       <li><a href='/sports/'>Sports</a></li>
+       <li><a href='/business/'>Business</a></li>
+       <li><a href='/technology/'>Technology</a></li>
+       <li><a href='/science/'>Science</a></li>
+       <li><a href='/travel/'>Travel</a></li>
+			 <li style = "width: 50" > </li>
+			 	<div id = "log" style = "text-align: right">
+				{% if loggedin %}
+
+				 <li><a href='/edit/'>Edit Account</a></li>
+				 <li><a href='/logout/'>Log Out</a></li>
+			  	 {% else %}
+				 <li><a href='/signin/'>Log In</a></li>
+				 <li><a href='/signup/'>Sign Up</a></li>
+				 {% endif %}
+				</div>
+		 </ul>
+		</div>
+
+
+  <div id="menu" >
+			<table> <td> <p>
+				<table>
+						<td><div style="text-align: center">
+            <!--  <img src="images/globe.png" alt="Image not found " width="90" height="120">--> </div> </td>
+
+						<tr><td style="text-align: left"><h2>Share our site</br></h2></td></tr>
+
+						<tr><td><h3 style="text-align: left">
+						<!---facebook-->
+							 <div class="fb-like" data-href="https://www.TheNewsNest1997.com" data-width="30" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+							 </div>
+							 </td></tr>
+
+						<tr><td style="text-align: left"><h2>Breaking News</br></h2></td></tr>
+
+					  <tr><td><h3 style="text-align: left">Quick Maths</h3><p style="text-align: left">Big Shaq just did quick maths live on an interview. He seems to claim the ting goes skra however our host Babu claims to differ.</p></td></tr>
+						<tr><td><h3 style="text-align: left">Brexit Update</h3><p style="text-align: left"> This just in. There is no progress with brexit as usual. Theresa May admits shes racist and decides to pay the europion union triple the asked for amount to keep the progress of brexit the same.</p></td></tr>
+						<tr><td><h3 style="text-align: left">Tandoori Tony's Closes Down</h3><p style="text-align: left">The famous restaurunt loved by many londoner's closes down after Racism Tax increases to 200% forcing non british nationals to be unable to have stable businesses. Tony, also known as Tharmanathansundaram said in an interview he will be moving back to Poland.</p></td></tr>
+						<tr><td><h3 style="text-align: left">Korea who?</h3><p style="text-align: left">Donald Trump accidently wipes out South Korea when attempting to deploy an atomic bomb on North Korea alone. In an interview Trump said he did not know that both countries were so close to each other. No further investigations will take place.</p></td></tr>
+
+				</table>
+			</p> </td> </table>
+	 <ul>
+
+
+	 </ul>
+   </div>
+
+
+  <div id="content">
+	{% block content %}
+	{% endblock %}
+	<div class="fb-quote"></div>
+  </div>
+
+
+  <div id="footer">
+	<p>  All rights reserved by The News Nest 2017.</p> <!--Footer-->
+   </div>
+
+
+<!---facebook config 4
+  <div class="fb-quote"></div> -->
+
+
+ </body>
+</html>

@@ -1,0 +1,165 @@
+{% extends "mainApp/base.html" %}
+{% load staticfiles %}
+{% block content %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="{% static 'mainApp/addCommentBus.js' %}"></script>
+<h1 style = "text-align: center; color: rgba(128, 0, 32, .7);">Business </h1>
+<p style = "text-align: center; color: rgba(128, 0, 32, .7);">__________________________________________________</p> </br>
+
+		<h2 style="text-align: center"> How To Start A Business </h2>
+
+     <div style="text-align: center">
+      <img src="http://menaentrepreneur.org/wp-content/uploads/2017/06/Non-Reliant-Business.jpg" alt="Image not found" height="300" width="290">
+
+    <p>
+        Businesses do not magically get created from a pool of infinite ideas that many people have.
+    </p>
+    <p>
+       Founders intially start off with an idea of how to solve a specific problem people face in their lives. From this, they write up a business plan on how to deliver their product or service to their customers, with sources of finance, expenses and revenue streams outlined to prevent ambiguity on how the business will be run. This will then become the stepping stone into which the business will actually be able to get investment and start making their product or service, which will allow them to trade.
+     </p>
+      </div>
+    </br>
+
+
+    <!---comments for post1-->
+   <div id="Article" style="display: block; text-align: center;"><!-- centering div--->
+    <div id="Comments">
+   {% if comments %}
+   <span style="font-weight: bold;" >Comments </span><br>
+   {% for comment in comments %}
+      {% if comment.article.header == "bus1" %}
+        {{comment.user.firstName}} : {{ comment.text }}
+            {% if comment.user.email == username %}
+        [<a href='/business/?erase={{comment.id}}'>Erase</a>]
+            {% endif %}
+        <br>
+      {% endif %}
+   {% endfor %}
+  {% endif %}
+  </div>
+  <p>
+
+  {% if loggedin %}
+    <form id = "addComment" method='POST'>
+       {% csrf_token %}
+       Add a comment:
+       <br>
+       <textarea id='comment' cols='60' rows='3'></textarea>
+       <input type='hidden' id='article' value = "bus1">
+       <br>
+       <input type='submit' value='Post Message'>
+    </form>
+  {% endif %}
+  {% for article in articles %}
+    {% if article.header == "bus1" %}
+
+      [<a href='/business/?like={{article.header}},{{username}}'>{{article.likes}} Like</a>]
+
+    {% endif %}
+  {% endfor %}
+      </div>
+
+</br><p style = "text-align: center; color: rgba(128, 0, 32, .7);">__________________________________________________</p> </br>
+
+
+
+     <div id="Article" style="text-align: center">
+    <h2> Becoming An Entrepreneur </h2>
+
+      <img src="http://dineshbakshi.com/images/stories/article-photos/entrepreneur.jpg" alt="Image not found" height="300" width="290" align="middle">
+
+    <p>
+         It is widely debated whether an entrepeneur is born or created via skills and knowledge accquire from their experiences. But here's a few things you all entrepreneurs have in common.
+    </p>
+    <p>
+      Entrepreneurs are leaders with a vision aiming to innovate and take risks with their ideas. They have are extremely motivated and determined to see their business succeed, by recuruiting individuals who they know can make their idea become a reality.
+    </p>
+      <p> This energy they have, is how they convince investors to pour money into their business and their employees with the belief that something great will be accomplished.
+      </p>
+
+    </br>
+
+    <div  id="Comments">
+   {% if comments %}
+   <span style="font-weight: bold;" >Comments </span><br>
+   {% for comment in comments %}
+      {% if comment.article.header == "bus2" %}
+        {{comment.user.firstName}} : {{ comment.text }}
+            {% if comment.user.email == username %}
+        [<a href='/business/?erase={{comment.id}}'>Erase</a>]
+            {% endif %}
+        <br>
+      {% endif %}
+   {% endfor %}
+  {% endif %}
+  </div>
+  <p>
+
+  {% if loggedin %}
+    <form id = "addComment2" method='POST' >
+       {% csrf_token %}
+       Add a comment:
+       <br>
+       <textarea id='comment2' cols='60' rows='3'></textarea>
+       <input type='hidden' id='article2' value = "bus2">
+       <br>
+       <input type='submit' value='Post Message'>
+    </form>
+  {% endif %}
+  {% for article in articles %}
+    {% if article.header == "bus2" %}
+      [<a href='/business/?like={{article.header}},{{username}}'>{{article.likes}} Like</a>]
+    {% endif %}
+  {% endfor %}
+</div>
+
+</br><p style = "text-align: center; color: rgba(128, 0, 32, .7);">__________________________________________________</p> </br>
+
+
+
+     <div id="Article" style="text-align: center">
+           <h2> Large Businesses Escaping Corporation Tax </h2>
+      <img src="http://s.thestreet.com/files/tsc/v2008/photos/contrib/uploads/80721bb7-cd48-11e6-b490-0f437cfe09ba.png" alt="Image not found" height="300" width="290" align="middle">
+
+    <p>
+         Corporation tax is currently 20%, but unsurprisingly, businesses do what they can to find a loophole in order to "legally" avoid paying any kind of tax so that they keep most of the revenue they make from sales.
+    </p>
+    <p>
+      Naturally, these large organisations look for the cheapest place to set up their headquarters, which happens to be Northen Ireland, where they can happily continue making billions in revenue and keep most the cash made to make themselves richer.
+    </p>
+    </br> </br>
+    <div id="Comments">
+   {% if comments %}
+   <span style="font-weight: bold;" >Comments </span><br>
+   {% for comment in comments %}
+      {% if comment.article.header == "bus3" %}
+        {{comment.user.firstName}} : {{ comment.text }}
+            {% if comment.user.email == username %}
+        [<a href='/business/?erase={{comment.id}}'>Erase</a>]
+            {% endif %}
+        <br>
+      {% endif %}
+   {% endfor %}
+  {% endif %}
+  </div>
+  <p>
+
+  {% if loggedin %}
+    <form id = "addComment3" method='POST' >
+       {% csrf_token %}
+       Add a comment:
+       <br>
+       <textarea id='comment3' cols='60' rows='3'></textarea>
+       <input type='hidden' id='article3' value = "bus3">
+       <br>
+       <input type='submit' value='Post Message'>
+    </form>
+  {% endif %}
+  {% for article in articles %}
+    {% if article.header == "bus3" %}
+      [<a href='/business/?like={{article.header}},{{username}}'>{{article.likes}} Like</a>]
+    {% endif %}
+  {% endfor %}
+  </div>
+
+{% endblock %}

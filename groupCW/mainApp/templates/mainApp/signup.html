@@ -1,0 +1,44 @@
+{% extends "mainApp/base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="{% static 'mainApp/add.js' %}"></script>
+
+<div class='main'>
+   <h3>Please fill in<span style="color:red"> ALL </span>the details and click submit when finished to complete Sign up</h3>
+   <form id="addUserForm" method='POST' action="/addUser/" >
+   	{% csrf_token %}
+      <span class='fieldname'>Email</span>
+      <input type='text' maxlength='254' id='email'>
+      <span id='info'></span>
+         <br>
+      <span class='fieldname'>First Name</span>
+      <input type='text' maxlength='16' id='firstName'>
+      <span id='info'></span>
+         <br>
+      <span class='fieldname'>Last Name</span>
+      <input type='text' maxlength='16' id='lastName'>
+      <span id='info'></span>
+         <br>
+      <span class='fieldname'>Phone Number</span>
+      <input type='text' maxlength='16' id='phoneNumber'>
+      <span id='info'></span>
+         <br>
+      <span class='fieldname'>Password</span>
+      <input type='password' maxlength='16' id='password'>
+      <span id='info'></span>
+         <br>
+      <span class='fieldname'>Confirm Password</span>
+      <input type='password' maxlength='16' id='cpassword'>
+      <span class='fieldname'></span>
+         <p>
+      <!--<span class='fieldname'>Price</span>
+      <input type="number" min = "0" name='price' ></input>
+      <span class='fieldname'></span>
+        -->
+      <input id="addUser" type='submit' value='Sign up'>
+   </form>
+</div>
+{% endblock %}
