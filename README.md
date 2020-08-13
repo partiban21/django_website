@@ -33,7 +33,15 @@ Start the Django local server
 
     ```bash
     cd django_website
-    python manage.py runserver
+    python manage.py runserver 8081
+    Performing system checks...
+
+    System check identified no issues (0 silenced).
+    
+    August 13, 2020 - 13:31:44
+    Django version 1.11.29, using settings 'groupCW.settings'
+    Starting development server at http://127.0.0.1:8081/
+    Quit the server with CONTROL-C.
     ```
 
 
